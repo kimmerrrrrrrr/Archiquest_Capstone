@@ -6,7 +6,7 @@ import * as Google from 'expo-auth-session/providers/google';
 import * as WebBrowser from 'expo-web-browser';
 import { getAuth, signInWithEmailAndPassword, signInWithCredential, GoogleAuthProvider, sendPasswordResetEmail } from 'firebase/auth';
 
-const FacultyLogin = ({ navigation }) => {
+const UserLogin = ({ navigation }) => {
   const [role, setRole] = useState('Instructor');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -166,7 +166,7 @@ const FacultyLogin = ({ navigation }) => {
 
       <View style={styles.signUpContainer}>
         <Text>Don't have an account yet?</Text>
-        <TouchableOpacity onPress={() => navigation.navigate('FacultyRegister')}>
+        <TouchableOpacity onPress={() => navigation.navigate('UserRegister')}>
           <Text style={styles.signUpLink}> Sign up</Text>
         </TouchableOpacity>
       </View>
@@ -322,4 +322,4 @@ modalContent: {
 },
 });
 
-export default FacultyLogin;
+export default UserLogin;
