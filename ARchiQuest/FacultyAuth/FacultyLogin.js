@@ -35,7 +35,7 @@ const FacultyLogin = ({ navigation }) => {
         await signInWithEmailAndPassword(auth, email, password);
         
         alert('Login Successful');
-        navigation.navigate('Progress');
+        navigation.navigate('FacultyDashboard');
       } catch (error) {
         alert(error.message);
       }
@@ -60,7 +60,7 @@ const FacultyLogin = ({ navigation }) => {
         await signInWithCredential(auth, credential);
         alert('Google Login Successful!');
         setModalVisible(false);
-        navigation.navigate('Progress');
+        navigation.navigate('FacultyDashboard');
       } catch (error) {
         alert('Google login failed: ' + error.message);
         setModalVisible(false);

@@ -1,31 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { FontAwesome5 } from '@expo/vector-icons';
 
 const FacultyDashboard = ({ navigation }) => {
-  const [dash, setDash] = useState('Progress');
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
         <Text style={styles.title}>Faculty Dashboard</Text>
       </View>
 
-      <View style={styles.dashSwitch}>
-        <TouchableOpacity
-          style={[styles.dashButton, dash === 'Progress' && styles.activeDash]}
-          onPress={() => setDash('Progress')}
-        >
-          <FontAwesome5 size={20} color={dash === 'Progress' ? '#fff' : '#333'} />
-          <Text style={[styles.dashText, dash === 'Progress' && styles.activeDashText]}>Progress</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.dashButton, dash === 'Insights' && styles.activeDash]}
-          onPress={() => setDash('Insights')}
-        >
-          <FontAwesome5  size={20} color={dash === 'Insights' ? '#fff' : '#333'} />
-          <Text style={[styles.dashText, dash === 'Insights' && styles.activeDashText]}>Insights</Text>
-        </TouchableOpacity>
-      </View>
+      <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate('Create Design Plan')}>
+        <Text style={styles.buttonText}>Create Design Plan</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate('StudentProgress')}>
+        <Text style={styles.buttonText}>Student Progress Monitoring</Text>
+      </TouchableOpacity>
+      
     </View>
 
     
@@ -40,43 +34,18 @@ const styles = StyleSheet.create({
     backgroundColor: '#f5f5f5',
     padding: 10,
   },
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'flext-start',
+    backgroundColor: '#f5f5f5',
+    padding: 10,
+  },
   title: {
     fontSize: 28,
     fontWeight: 'bold',
     color: '#176B87',
-    marginBottom: 10,
-  },
-  subtitle: {
-    fontSize: 16,
-    color: '#7a7a7a',
-    marginBottom: 30,
-  },
-
-  dashSwitch: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    backgroundColor: '#b4d4ff',
-    borderRadius: 8,
-    paddingHorizontal: '10%',
-    paddingVertical: '1.5%',
-    marginBottom: 20,
-  },
-  dashButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: '2.5%',
-    paddingHorizontal: '20%',
-    borderRadius: 6,
-  },
-  activeDash: {
-    backgroundColor: '#86b6f6',
-  },
-  dashText: {
-    marginLeft: 5,
-    color: '#000',
-  },
-  activeDashText: {
-    color: '#fff',
+    marginBottom: 5,
   },
   button: {
     backgroundColor: '#176B87',
@@ -85,12 +54,42 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 8,
     marginVertical: 10,
+    flex: 'center',
   },
   buttonText: {
     color: '#fff',
     fontSize: 18,
     fontWeight: 'bold',
   },
+  dashSwitch: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    backgroundColor: '#b4d4ff',
+    borderRadius: 8,
+    paddingHorizontal: '10%',
+    paddingVertical: '1.5%',
+    margin: '2%',
+  },
+  dashButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: '2.5%',
+    paddingHorizontal: '20%',
+    borderRadius: 6,
+    margin: '.5%',
+  },
+  activeDash: {
+    backgroundColor: '#86b6f6',
+  },
+  dashText: {
+    marginLeft: 5,
+    fontSize: 15,
+    color: '#176B87',
+  },
+  activeDashText: {
+    color: '#fff',
+  },
+  
 });
 
 export default FacultyDashboard;
