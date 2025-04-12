@@ -1,20 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import FacultyLogin from './FacultyAuth/FacultyLogin';
+import FacultyRegister from './FacultyAuth/FacultyRegister';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import WelcomeScreen from './WelcomeScreen';
+// import Dashboard from './Dashboard/Dashboard';
+import Progress from './StudentProgressMonitoring/Progress';
+import InsightPanel from './StudentProgressMonitoring/InsightPanel';
+import FacultyDashboard from './StudentProgressMonitoring/FacultyDashboard';
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='WelcomeScreen'>
+        <Stack.Screen name='WelcomeScreen' component={WelcomeScreen}/>
+        <Stack.Screen name='FacultyLogin' component={FacultyLogin}/>
+        <Stack.Screen name='FacultyRegister' component={FacultyRegister}/>
+        {/* <Stack.Screen name='Dashboard' component={Dashboard} /> */}
+        <Stack.Screen name='Progress' component={Progress} />
+        <Stack.Screen name='InsightPanel' component={InsightPanel} />
+        <Stack.Screen name='FacultyDashboard' component={FacultyDashboard} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
