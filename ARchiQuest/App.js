@@ -1,9 +1,9 @@
-import FacultyLogin from './FacultyAuth/FacultyLogin';
-import FacultyRegister from './FacultyAuth/FacultyRegister';
+import UserLogin from './Authentication/UserLogin';
+import UserRegister from './Authentication/UserRegister';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import WelcomeScreen from './WelcomeScreen';
-import Dashboard from './Dashboard/Dashboard';
+// import Dashboard from './Dashboard/Dashboard';
 import Progress from './StudentProgressMonitoring/Progress';
 import InsightPanel from './StudentProgressMonitoring/InsightPanel';
 import FacultyDashboard from './StudentProgressMonitoring/FacultyDashboard';
@@ -16,9 +16,9 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName='WelcomeScreen'>
         <Stack.Screen name='WelcomeScreen' component={WelcomeScreen}/>
-        <Stack.Screen name='FacultyLogin' component={FacultyLogin}/>
-        <Stack.Screen name='FacultyRegister' component={FacultyRegister}/>
-        <Stack.Screen name='Dashboard' component={Dashboard} />
+        <Stack.Screen name='UserLogin' component={UserLogin}/>
+        <Stack.Screen name='UserRegister' component={UserRegister}/>
+        {/* <Stack.Screen name='Dashboard' component={Dashboard} /> */}
         <Stack.Screen name='Progress' component={Progress} />
         <Stack.Screen name='InsightPanel' component={InsightPanel} />
         <Stack.Screen name='FacultyDashboard' component={FacultyDashboard} />

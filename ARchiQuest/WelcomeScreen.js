@@ -17,14 +17,14 @@ const WelcomeScreen = ({ navigation }) => {
 
       <TouchableOpacity 
         style={styles.button} 
-        onPress={() => navigation.navigate('FacultyLogin')}
+        onPress={() => navigation.navigate('UserLogin')}
       >
         <Text style={styles.buttonText}>Sign In</Text>
       </TouchableOpacity>
 
       <TouchableOpacity 
         style={styles.buttonOutline} 
-        onPress={() => navigation.navigate('FacultyRegister')}
+        onPress={() => navigation.navigate('UserRegister')}
       >
         <Text style={styles.buttonOutlineText}>Sign Up</Text>
       </TouchableOpacity>
