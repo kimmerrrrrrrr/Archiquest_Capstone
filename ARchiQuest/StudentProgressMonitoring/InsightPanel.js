@@ -1,29 +1,23 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
-const InsightPanel = ({ navigation }) => {
+const InsightPanel = ({ embedded }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome to the Faculty Dashboard</Text>
-      <Text style={styles.subtitle}>You are successfully logged in!</Text>
+      <Text style={styles.title}>AI Performance Insights</Text>
+      <Text style={styles.subtitle}>Personalized analysis of your learning</Text>
 
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate('Profile')}>
-        <Text style={styles.buttonText}>Go to Profile</Text>
-      </TouchableOpacity>
+      {!embedded && (
+        <>
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Profile')}>
+            <Text style={styles.buttonText}>Go to Profile</Text>
+          </TouchableOpacity>
 
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate('Settings')}>
-        <Text style={styles.buttonText}>Settings</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => alert('Logging out...')}>
-        <Text style={styles.buttonText}>Log Out</Text>
-      </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Settings')}>
+            <Text style={styles.buttonText}>Settings</Text>
+          </TouchableOpacity>
+        </>
+      )}
     </View>
   );
 };
@@ -31,21 +25,25 @@ const InsightPanel = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
     backgroundColor: '#f5f5f5',
     padding: 20,
   },
   title: {
-    fontSize: 28,
-    fontWeight: 'bold',
+    fontSize: 18,
+    fontWeight: 'semi-bold',
     color: '#176B87',
-    marginBottom: 10,
+    marginBottom: '1%',
+    textAlign: 'left',
+    alignSelf: 'stretch',
   },
   subtitle: {
-    fontSize: 16,
+    fontSize: 14,
     color: '#7a7a7a',
     marginBottom: 30,
+    textAlign: 'left',
+    alignSelf: 'stretch',
   },
   button: {
     backgroundColor: '#176B87',

@@ -1,17 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import Progress from './Progress';
+import InsightPanel from './InsightPanel';
 
-const StudentProgress = ({ navigation }) => {
+const StudentProgress = () => {
   const [dash, setDash] = useState('Progress');
 
-  const handlePress = (dashboard) => {
-    setDash(dashboard);
-    if (dashboard === 'Progress') {
-      navigation.navigate('Progress');
-    } else if (dashboard === 'Insights') {
-      navigation.navigate('InsightPanel');
-    }
-};
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
@@ -21,26 +15,35 @@ const StudentProgress = ({ navigation }) => {
       <View style={styles.dashSwitch}>
         <TouchableOpacity
           style={[styles.dashButton, dash === 'Progress' && styles.activeDash]}
-          onPress={() => handlePress('Progress')}
+          onPress={() => setDash('Progress')}
         >
-          <Text style={[styles.dashText, dash === 'Progress' && styles.activeDashText]}>Progress</Text>
+          <Text style={[styles.dashText, dash === 'Progress' && styles.activeDashText]}>
+            Progress
+          </Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.dashButton, dash === 'Insights' && styles.activeDash]}
-          onPress={() => handlePress('Insights')}
+          onPress={() => setDash('Insights')}
         >
-          <Text style={[styles.dashText, dash === 'Insights' && styles.activeDashText]}>Insights</Text>
+          <Text style={[styles.dashText, dash === 'Insights' && styles.activeDashText]}>
+            Insights
+          </Text>
         </TouchableOpacity>
       </View>
-    </View>
 
-    
+      <View style={styles.content}>
+        {dash === 'Progress' ? <Progress embedded /> : <InsightPanel embedded />}
+      </View>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
   titleContainer: {
-    flex: '10%',
     alignItems: 'center',
     justifyContent: 'flex-start',
     backgroundColor: '#f5f5f5',
@@ -80,18 +83,8 @@ const styles = StyleSheet.create({
   activeDashText: {
     color: '#fff',
   },
-  button: {
-    backgroundColor: '#176B87',
-    paddingVertical: 12,
-    width: '80%',
-    alignItems: 'center',
-    borderRadius: 8,
-    marginVertical: 10,
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 18,
-    fontWeight: 'bold',
+  content: {
+    flex: 1,
   },
 });
 
