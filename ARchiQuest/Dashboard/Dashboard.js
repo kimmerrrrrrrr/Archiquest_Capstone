@@ -1,16 +1,17 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 
 const Dashboard = ({ navigation }) => {
   return (
+   
     <View style={styles.container}>
       <Text style={styles.title}>Welcome to the Faculty Dashboard</Text>
       <Text style={styles.subtitle}>You are successfully logged in!</Text>
-
+  
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('Profile')}>
-        <Text style={styles.buttonText}>Go to Profile</Text>
+        onPress={() => navigation.navigate('DesignPlan')}>
+        <Text style={styles.buttonText}>Upload Design</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
@@ -24,7 +25,9 @@ const Dashboard = ({ navigation }) => {
         onPress={() => alert('Logging out...')}>
         <Text style={styles.buttonText}>Log Out</Text>
       </TouchableOpacity>
+    
     </View>
+    
   );
 };
 
