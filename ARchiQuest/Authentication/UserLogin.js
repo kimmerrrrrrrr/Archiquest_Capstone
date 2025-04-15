@@ -35,7 +35,7 @@ const UserLogin = ({ navigation }) => {
         await signInWithEmailAndPassword(auth, email, password);
         
         alert('Login Successful');
-        navigation.navigate('Progress');
+        navigation.navigate('Dashboard');
       } catch (error) {
         alert(error.message);
       }
