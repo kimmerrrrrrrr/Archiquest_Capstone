@@ -8,17 +8,18 @@ import Progress from './StudentProgressMonitoring/Progress';
 import InsightPanel from './StudentProgressMonitoring/InsightPanel';
 import FacultyDashboard from './StudentProgressMonitoring/FacultyDashboard';
 import StudentProgress from './StudentProgressMonitoring/StudentProgress';
+//import mainLanding from './Dashboard/mainLanding';
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='WelcomeScreen'>
+      <Stack.Navigator initialRouteName='StudentProgress'>
         <Stack.Screen name='WelcomeScreen' component={WelcomeScreen}/>
         <Stack.Screen name='UserLogin' component={UserLogin}/>
         <Stack.Screen name='UserRegister' component={UserRegister}/>
-        {/* <Stack.Screen name='Dashboard' component={Dashboard} /> */}
+        {/* <Stack.Screen name='mainLanding' component={mainLanding} /> */}
         <Stack.Screen name='Progress' component={Progress} />
         <Stack.Screen name='InsightPanel' component={InsightPanel} />
         <Stack.Screen name='FacultyDashboard' component={FacultyDashboard} />

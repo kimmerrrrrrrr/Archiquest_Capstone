@@ -8,10 +8,7 @@ const StudentProgress = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.titleContainer}>
-        <Text style={styles.title}>Student Monitoring</Text>
-      </View>
-
+      
       <View style={styles.dashSwitch}>
         <TouchableOpacity
           style={[styles.dashButton, dash === 'Progress' && styles.activeDash]}
@@ -43,18 +40,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
-  titleContainer: {
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    backgroundColor: '#f5f5f5',
-    padding: 10,
-  },
-  title: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    color: '#176B87',
-    marginBottom: 5,
-  },
   dashSwitch: {
     flexDirection: 'row',
     justifyContent: 'center',
@@ -63,6 +48,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: '10%',
     paddingVertical: '1.5%',
     margin: '2%',
+    marginTop: '5%',
+    marginBottom: '0.5%',
   },
   dashButton: {
     flexDirection: 'row',
